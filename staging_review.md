@@ -2,7 +2,7 @@
 
 ## Decision
 
-A separate review stage is prepared for inspection. It is runnable with the existing Python standard library and contains no historical campaign directory, Packet Tracer project/transcript, machine-specific preservation record, or local environment output. **Public release remains blocked** because no license or ownership grant was established. Nothing has been published, uploaded, pushed, or made public.
+The GitHub repository is currently public. This review covers the staged tree, which is runnable with the Python standard library and contains no historical campaign directory, Packet Tracer project/transcript, machine-specific preservation record, or local environment output. Rights-holder confirmation and an approved license remain unresolved; public availability does not establish a license grant or reuse permission.
 
 ## Candidate audit and classification
 
@@ -92,9 +92,9 @@ The demo, CLI, and tests were run from the staging directory alone. The staged s
 
 1. Rights-holder confirmation and an approved license, with any required notices.
 2. A final human review of the exact staged tree and any applicable third-party ownership/attribution obligations.
-3. A later publication decision. This task only prepares local staging and review documents; it does not authorize publication.
+3. Determine and document any further publication or redistribution steps after resolving rights and licensing.
 
 ## Preservation
 
-Staging was performed by copying selected files into this new directory. No source, historical report, frozen dataset, Packet Tracer file, or existing hash record was edited. After staging, `python -B evaluation/network_steward_release_candidate_2026-10-20_01/verify_preservation.py` reported 54 checked files, zero mismatches, and `historical_files_unchanged: true`.
+Staging was performed by copying selected files into this new directory. The initial preservation check found no source, historical report, frozen dataset, Packet Tracer file, or existing hash record had changed. After staging, `python -B evaluation/network_steward_release_candidate_2026-10-20_01/verify_preservation.py` reported 54 checked files, zero mismatches, and `historical_files_unchanged: true`. This documentation-only correction updates the README and this review; the staging manifest records their refreshed hashes. No implementation, test, test-result, or fixture files changed.
 
