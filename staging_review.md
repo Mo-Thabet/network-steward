@@ -25,7 +25,7 @@ The GitHub repository is currently public. This review covers the staged tree, w
 | `license_decision_required.md` | Records that rights-holder and license approval are required; is not a license grant. |
 | `staging_review.md` | This candidate classification, file inventory, exclusions, and release blockers. |
 | `test_results.md` | Exact staged commands, observed results, test count, and scope limitations. |
-| `staging_manifest.sha256` | SHA-256 index of all other staged files; as a sidecar it does not hash itself. |
+| `staging_manifest.sha256` | SHA-256 index of every other staged file; this sidecar does not hash itself. Each digest covers the exact Git-tree bytes for that path (UTF-8 text with LF line endings; no other normalization). Entries cover every tracked file except this sidecar, including `license_decision_required.md`. |
 | `docs/quickstart.md` | Python requirement, synthetic demo and CLI usage, and result interpretation. |
 | `docs/architecture.md` | Confirmed synthetic input pipeline, rules, citations, conflict handling, abstention, evaluation boundary, and limitations. |
 | `examples/reproducible_demo.py` | One-command synthetic NS-01 example with citation validation. |
