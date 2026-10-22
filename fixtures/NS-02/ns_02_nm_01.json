@@ -1,0 +1,31 @@
+{
+  "fixture_id": "NS-02-NM-01",
+  "synthetic": true,
+  "data_notice": "Synthetic Cisco-style fixture data; not captured from IOS or a simulator.",
+  "scenario_id": "NS-02",
+  "case_kind": "near_miss",
+  "injected_fault": "Trunk is not operational; the VLAN-path rule cannot establish an allowed-list mismatch.",
+  "report": {
+    "symptom": "Clients in expected VLAN 20 cannot reach services beyond the access switch."
+  },
+  "lab_map": {
+    "variant": "trunk_allowed_vlan",
+    "expected_client_vlan": 20,
+    "uplink": "GigabitEthernet0/24"
+  },
+  "captures": [
+    {
+      "device": "SW-ACCESS-02",
+      "command": "show interfaces trunk",
+      "output": "Port                    Mode         Encapsulation  Status        Native vlan\nGigabitEthernet0/24      on           802.1q         not-trunking  1"
+    }
+  ],
+  "expected": {
+    "candidate_states": {
+      "NS-02": "contradicted"
+    },
+    "evidence": [],
+    "abstain": true,
+    "next_command": "show interfaces trunk"
+  }
+}

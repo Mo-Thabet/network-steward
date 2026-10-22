@@ -1,0 +1,36 @@
+{
+  "fixture_id": "NS-02-POS-A",
+  "synthetic": true,
+  "data_notice": "Synthetic Cisco-style fixture data; not captured from IOS or a simulator.",
+  "scenario_id": "NS-02",
+  "case_kind": "positive",
+  "injected_fault": "Client access port assigned VLAN 30 instead of expected VLAN 20.",
+  "report": {
+    "symptom": "Clients in expected VLAN 20 cannot reach the local gateway."
+  },
+  "lab_map": {
+    "variant": "access_vlan",
+    "expected_client_vlan": 20,
+    "access_port": "GigabitEthernet0/1"
+  },
+  "captures": [
+    {
+      "device": "SW-ACCESS-02",
+      "command": "show interfaces GigabitEthernet0/1 switchport",
+      "output": "Name: Gi0/1\nOperational Mode: static access\nAccess Mode VLAN: 30 (CLIENT-30)"
+    }
+  ],
+  "expected": {
+    "candidate_states": {
+      "NS-02": "supported"
+    },
+    "evidence": [
+      {
+        "capture_index": 0,
+        "line_contains": "Access Mode VLAN: 30"
+      }
+    ],
+    "abstain": false,
+    "next_command": "show vlan brief"
+  }
+}

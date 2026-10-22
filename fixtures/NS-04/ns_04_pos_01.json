@@ -1,0 +1,55 @@
+{
+  "fixture_id": "NS-04-POS-01",
+  "synthetic": true,
+  "data_notice": "Synthetic Cisco-style fixture data; not captured from IOS or a simulator.",
+  "scenario_id": "NS-04",
+  "case_kind": "positive",
+  "injected_fault": "Direct peer OSPF interfaces use different areas while the expected peer is absent.",
+  "report": {
+    "symptom": "Directly connected OSPF peer 203.0.113.2 is not FULL."
+  },
+  "lab_map": {
+    "peer_address": "203.0.113.2",
+    "local_interface": "GigabitEthernet0/0",
+    "peer_interface": "GigabitEthernet0/1",
+    "expected_area": "0"
+  },
+  "captures": [
+    {
+      "device": "RTR-A",
+      "command": "show ip ospf neighbor",
+      "output": "Neighbor ID     Pri State           Address         Interface\n203.0.113.9       1 FULL/DR         192.0.2.9       Gi0/1"
+    },
+    {
+      "device": "RTR-A",
+      "command": "show ip ospf interface GigabitEthernet0/0",
+      "output": "GigabitEthernet0/0 is up, line protocol is up\n  Internet Address 192.0.2.1/30, Area 0, Attached via Network Statement"
+    },
+    {
+      "device": "RTR-B",
+      "command": "show ip ospf interface GigabitEthernet0/1",
+      "output": "GigabitEthernet0/1 is up, line protocol is up\n  Internet Address 192.0.2.2/30, Area 1, Attached via Network Statement"
+    }
+  ],
+  "expected": {
+    "candidate_states": {
+      "NS-04": "supported"
+    },
+    "evidence": [
+      {
+        "capture_index": 0,
+        "line_contains": "203.0.113.9"
+      },
+      {
+        "capture_index": 1,
+        "line_contains": "Area 0"
+      },
+      {
+        "capture_index": 2,
+        "line_contains": "Area 1"
+      }
+    ],
+    "abstain": false,
+    "next_command": "show ip ospf interface GigabitEthernet0/1 on the other end"
+  }
+}

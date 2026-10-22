@@ -1,0 +1,30 @@
+{
+  "fixture_id": "NS-05-NM-01",
+  "synthetic": true,
+  "data_notice": "Synthetic Cisco-style fixture data; not captured from IOS or a simulator.",
+  "scenario_id": "NS-05",
+  "case_kind": "near_miss",
+  "injected_fault": "No expected-prefix baseline is supplied; output alone cannot support route absence.",
+  "report": {
+    "symptom": "RTR-B cannot reach a remote destination."
+  },
+  "lab_map": {
+    "router": "RTR-B",
+    "default_route_intended_to_cover": true
+  },
+  "captures": [
+    {
+      "device": "RTR-B",
+      "command": "show ip route 198.51.100.0/24",
+      "output": "% Network not in table\nGateway of last resort is 192.0.2.1 to network 0.0.0.0\nS* 0.0.0.0/0 [1/0] via 192.0.2.1"
+    }
+  ],
+  "expected": {
+    "candidate_states": {
+      "NS-05": "insufficient"
+    },
+    "evidence": [],
+    "abstain": true,
+    "next_command": "show ip protocols"
+  }
+}

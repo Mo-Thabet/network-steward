@@ -1,0 +1,37 @@
+{
+  "fixture_id": "NS-04-NM-01",
+  "synthetic": true,
+  "data_notice": "Synthetic Cisco-style fixture data; not captured from IOS or a simulator.",
+  "scenario_id": "NS-04",
+  "case_kind": "near_miss",
+  "injected_fault": "Peer-side OSPF interface output is missing, so area mismatch is not established.",
+  "report": {
+    "symptom": "Directly connected OSPF peer 203.0.113.2 is absent."
+  },
+  "lab_map": {
+    "peer_address": "203.0.113.2",
+    "local_interface": "GigabitEthernet0/0",
+    "peer_interface": "GigabitEthernet0/1",
+    "expected_area": "0"
+  },
+  "captures": [
+    {
+      "device": "RTR-A",
+      "command": "show ip ospf neighbor",
+      "output": "Neighbor ID     Pri State           Address         Interface\n203.0.113.9       1 FULL/DR         192.0.2.9       Gi0/1"
+    },
+    {
+      "device": "RTR-A",
+      "command": "show ip ospf interface GigabitEthernet0/0",
+      "output": "Internet Address 192.0.2.1/30, Area 0, Attached via Network Statement"
+    }
+  ],
+  "expected": {
+    "candidate_states": {
+      "NS-04": "insufficient"
+    },
+    "evidence": [],
+    "abstain": true,
+    "next_command": "show ip ospf interface GigabitEthernet0/1 on the other end"
+  }
+}

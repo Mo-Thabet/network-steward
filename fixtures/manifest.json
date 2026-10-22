@@ -1,0 +1,121 @@
+{
+  "synthetic": true,
+  "data_notice": "Synthetic Cisco-style fixture data; not captured from IOS or a simulator.",
+  "fixture_count": 19,
+  "fixtures": [
+    {
+      "fixture_id": "NS-01-POS-01",
+      "scenario_id": "NS-01",
+      "case_kind": "positive",
+      "path": "NS-01/ns_01_pos_01.json"
+    },
+    {
+      "fixture_id": "NS-01-NM-01",
+      "scenario_id": "NS-01",
+      "case_kind": "near_miss",
+      "path": "NS-01/ns_01_nm_01.json"
+    },
+    {
+      "fixture_id": "NS-02-POS-A",
+      "scenario_id": "NS-02",
+      "case_kind": "positive",
+      "path": "NS-02/ns_02_pos_a.json"
+    },
+    {
+      "fixture_id": "NS-02-POS-B",
+      "scenario_id": "NS-02",
+      "case_kind": "positive",
+      "path": "NS-02/ns_02_pos_b.json"
+    },
+    {
+      "fixture_id": "NS-02-NM-01",
+      "scenario_id": "NS-02",
+      "case_kind": "near_miss",
+      "path": "NS-02/ns_02_nm_01.json"
+    },
+    {
+      "fixture_id": "NS-03-POS-01",
+      "scenario_id": "NS-03",
+      "case_kind": "positive",
+      "path": "NS-03/ns_03_pos_01.json"
+    },
+    {
+      "fixture_id": "NS-03-NM-01",
+      "scenario_id": "NS-03",
+      "case_kind": "near_miss",
+      "path": "NS-03/ns_03_nm_01.json"
+    },
+    {
+      "fixture_id": "NS-04-POS-01",
+      "scenario_id": "NS-04",
+      "case_kind": "positive",
+      "path": "NS-04/ns_04_pos_01.json"
+    },
+    {
+      "fixture_id": "NS-04-NM-01",
+      "scenario_id": "NS-04",
+      "case_kind": "near_miss",
+      "path": "NS-04/ns_04_nm_01.json"
+    },
+    {
+      "fixture_id": "NS-05-POS-01",
+      "scenario_id": "NS-05",
+      "case_kind": "positive",
+      "path": "NS-05/ns_05_pos_01.json"
+    },
+    {
+      "fixture_id": "NS-05-NM-01",
+      "scenario_id": "NS-05",
+      "case_kind": "near_miss",
+      "path": "NS-05/ns_05_nm_01.json"
+    },
+    {
+      "fixture_id": "NS-06-POS-01",
+      "scenario_id": "NS-06",
+      "case_kind": "positive",
+      "path": "NS-06/ns_06_pos_01.json"
+    },
+    {
+      "fixture_id": "NS-06-NM-01",
+      "scenario_id": "NS-06",
+      "case_kind": "near_miss",
+      "path": "NS-06/ns_06_nm_01.json"
+    },
+    {
+      "fixture_id": "NS-07-POS-01",
+      "scenario_id": "NS-07",
+      "case_kind": "positive",
+      "path": "NS-07/ns_07_pos_01.json"
+    },
+    {
+      "fixture_id": "NS-07-NM-01",
+      "scenario_id": "NS-07",
+      "case_kind": "near_miss",
+      "path": "NS-07/ns_07_nm_01.json"
+    },
+    {
+      "fixture_id": "NS-08-POS-01",
+      "scenario_id": "NS-08",
+      "case_kind": "positive",
+      "path": "NS-08/ns_08_pos_01.json"
+    },
+    {
+      "fixture_id": "NS-08-NM-01",
+      "scenario_id": "NS-08",
+      "case_kind": "near_miss",
+      "path": "NS-08/ns_08_nm_01.json"
+    },
+    {
+      "fixture_id": "ABSTAIN-MISSING-01",
+      "scenario_id": "NS-02",
+      "case_kind": "insufficient",
+      "path": "ABSTAIN/abstain_missing_01.json"
+    },
+    {
+      "fixture_id": "ABSTAIN-UNKNOWN-01",
+      "scenario_id": null,
+      "case_kind": "unknown",
+      "path": "ABSTAIN/abstain_unknown_01.json"
+    }
+  ]
+}

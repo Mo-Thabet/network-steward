@@ -1,0 +1,32 @@
+{
+  "fixture_id": "NS-06-NM-01",
+  "synthetic": true,
+  "data_notice": "Synthetic Cisco-style fixture data; not captured from IOS or a simulator.",
+  "scenario_id": "NS-06",
+  "case_kind": "near_miss",
+  "injected_fault": "DHCP server is local; relay omission is not this injected fault.",
+  "report": {
+    "symptom": "Clients in VLAN subnet 192.0.2.0/24 do not receive DHCP leases."
+  },
+  "lab_map": {
+    "client_vlan_interface": "Vlan20",
+    "client_subnet": "192.0.2.0/24",
+    "dhcp_server_remote": false,
+    "relay_expected": false
+  },
+  "captures": [
+    {
+      "device": "RTR-DIST-01",
+      "command": "show running-config interface Vlan20",
+      "output": "interface Vlan20\n ip address 192.0.2.1 255.255.255.0\n no shutdown"
+    }
+  ],
+  "expected": {
+    "candidate_states": {
+      "NS-06": "contradicted"
+    },
+    "evidence": [],
+    "abstain": true,
+    "next_command": "show ip interface Vlan20"
+  }
+}

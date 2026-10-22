@@ -1,0 +1,32 @@
+{
+  "fixture_id": "NS-01-NM-01",
+  "synthetic": true,
+  "data_notice": "Synthetic Cisco-style fixture data; not captured from IOS or a simulator.",
+  "scenario_id": "NS-01",
+  "case_kind": "near_miss",
+  "injected_fault": "Mapped endpoint port is down/down without administrative shutdown.",
+  "report": {
+    "symptom": "One wired endpoint has no link or network access.",
+    "device": "SW-EDGE-01",
+    "interface": "GigabitEthernet1/0/12"
+  },
+  "lab_map": {
+    "device": "SW-EDGE-01",
+    "expected_endpoint_interface": "GigabitEthernet1/0/12"
+  },
+  "captures": [
+    {
+      "device": "SW-EDGE-01",
+      "command": "show ip interface brief",
+      "output": "Interface              IP-Address      OK? Method Status Protocol\nGigabitEthernet1/0/12  unassigned      YES unset  down   down"
+    }
+  ],
+  "expected": {
+    "candidate_states": {
+      "NS-01": "contradicted"
+    },
+    "evidence": [],
+    "abstain": true,
+    "next_command": "show interfaces GigabitEthernet1/0/12"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "fixture_id": "NS-08-NM-01",
+  "synthetic": true,
+  "data_notice": "Synthetic Cisco-style fixture data; not captured from IOS or a simulator.",
+  "scenario_id": "NS-08",
+  "case_kind": "near_miss",
+  "injected_fault": "Matching pool advertises the expected DNS server; wrong-DNS rule is contradicted.",
+  "report": {
+    "symptom": "Clients receive addresses and reach IP destinations, but name lookups fail."
+  },
+  "lab_map": {
+    "affected_client_subnet": "192.0.2.0/24",
+    "matching_pool": "CLIENTS-20",
+    "expected_dns": "203.0.113.53",
+    "name_resolution_specific": true
+  },
+  "captures": [
+    {
+      "device": "RTR-DHCP-01",
+      "command": "show running-config | section dhcp",
+      "output": "ip dhcp pool CLIENTS-20\n network 192.0.2.0 255.255.255.0\n dns-server 203.0.113.53"
+    }
+  ],
+  "expected": {
+    "candidate_states": {
+      "NS-08": "contradicted"
+    },
+    "evidence": [],
+    "abstain": true,
+    "next_command": "show ip dhcp pool"
+  }
+}

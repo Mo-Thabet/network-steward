@@ -1,0 +1,41 @@
+{
+  "fixture_id": "NS-08-POS-01",
+  "synthetic": true,
+  "data_notice": "Synthetic Cisco-style fixture data; not captured from IOS or a simulator.",
+  "scenario_id": "NS-08",
+  "case_kind": "positive",
+  "injected_fault": "Matching DHCP pool advertises DNS other than documented lab resolver.",
+  "report": {
+    "symptom": "Clients receive addresses and reach IP destinations, but name lookups fail."
+  },
+  "lab_map": {
+    "affected_client_subnet": "192.0.2.0/24",
+    "matching_pool": "CLIENTS-20",
+    "expected_dns": "203.0.113.53",
+    "ip_connectivity_works": true
+  },
+  "captures": [
+    {
+      "device": "RTR-DHCP-01",
+      "command": "show running-config | section dhcp",
+      "output": "ip dhcp pool CLIENTS-20\n network 192.0.2.0 255.255.255.0\n dns-server 198.51.100.53\nip dhcp pool GUEST-30\n network 198.51.100.0 255.255.255.0\n dns-server 203.0.113.53"
+    }
+  ],
+  "expected": {
+    "candidate_states": {
+      "NS-08": "supported"
+    },
+    "evidence": [
+      {
+        "capture_index": 0,
+        "line_contains": "network 192.0.2.0"
+      },
+      {
+        "capture_index": 0,
+        "line_contains": "dns-server 198.51.100.53"
+      }
+    ],
+    "abstain": false,
+    "next_command": "show ip dhcp pool"
+  }
+}

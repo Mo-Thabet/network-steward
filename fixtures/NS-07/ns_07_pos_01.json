@@ -1,0 +1,39 @@
+{
+  "fixture_id": "NS-07-POS-01",
+  "synthetic": true,
+  "data_notice": "Synthetic Cisco-style fixture data; not captured from IOS or a simulator.",
+  "scenario_id": "NS-07",
+  "case_kind": "positive",
+  "injected_fault": "Matching client pool is exhausted.",
+  "report": {
+    "symptom": "New clients in subnet 192.0.2.0/24 cannot obtain an address."
+  },
+  "lab_map": {
+    "affected_client_subnet": "192.0.2.0/24",
+    "expected_pool": "CLIENTS-20"
+  },
+  "captures": [
+    {
+      "device": "RTR-DHCP-01",
+      "command": "show ip dhcp pool",
+      "output": "Pool CLIENTS-20 :\n Network: 192.0.2.0/24\n Total addresses: 254\n Leased addresses: 254\n Available addresses: 0\n Utilization mark (high/low) 100 / 10"
+    }
+  ],
+  "expected": {
+    "candidate_states": {
+      "NS-07": "supported"
+    },
+    "evidence": [
+      {
+        "capture_index": 0,
+        "line_contains": "Network: 192.0.2.0/24"
+      },
+      {
+        "capture_index": 0,
+        "line_contains": "Available addresses: 0"
+      }
+    ],
+    "abstain": false,
+    "next_command": "show ip dhcp binding"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "fixture_id": "NS-02-POS-B",
+  "synthetic": true,
+  "data_notice": "Synthetic Cisco-style fixture data; not captured from IOS or a simulator.",
+  "scenario_id": "NS-02",
+  "case_kind": "positive",
+  "injected_fault": "Operational uplink trunk omits expected VLAN 20 from allowed-and-active list.",
+  "report": {
+    "symptom": "Clients in expected VLAN 20 cannot reach services beyond the access switch."
+  },
+  "lab_map": {
+    "variant": "trunk_allowed_vlan",
+    "expected_client_vlan": 20,
+    "uplink": "GigabitEthernet0/24"
+  },
+  "captures": [
+    {
+      "device": "SW-ACCESS-02",
+      "command": "show interfaces trunk",
+      "output": "Port                    Mode         Encapsulation  Status        Native vlan\nGigabitEthernet0/24      on           802.1q         trunking      1\nPort                    Vlans allowed and active in management domain\nGigabitEthernet0/24      10,30"
+    }
+  ],
+  "expected": {
+    "candidate_states": {
+      "NS-02": "supported"
+    },
+    "evidence": [
+      {
+        "capture_index": 0,
+        "line_contains": "GigabitEthernet0/24      10,30"
+      }
+    ],
+    "abstain": false,
+    "next_command": "show interfaces trunk"
+  }
+}

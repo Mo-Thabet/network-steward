@@ -1,0 +1,37 @@
+{
+  "fixture_id": "NS-06-POS-01",
+  "synthetic": true,
+  "data_notice": "Synthetic Cisco-style fixture data; not captured from IOS or a simulator.",
+  "scenario_id": "NS-06",
+  "case_kind": "positive",
+  "injected_fault": "Remote DHCP server requires relay, but client VLAN interface has no helper address.",
+  "report": {
+    "symptom": "Clients in VLAN subnet 192.0.2.0/24 do not receive DHCP leases."
+  },
+  "lab_map": {
+    "client_vlan_interface": "Vlan20",
+    "client_subnet": "192.0.2.0/24",
+    "dhcp_server_remote": true,
+    "relay_expected": true
+  },
+  "captures": [
+    {
+      "device": "RTR-DIST-01",
+      "command": "show running-config interface Vlan20",
+      "output": "interface Vlan20\n ip address 192.0.2.1 255.255.255.0\n no shutdown"
+    }
+  ],
+  "expected": {
+    "candidate_states": {
+      "NS-06": "supported"
+    },
+    "evidence": [
+      {
+        "capture_index": 0,
+        "line_contains": "ip address 192.0.2.1"
+      }
+    ],
+    "abstain": false,
+    "next_command": "show ip interface Vlan20"
+  }
+}

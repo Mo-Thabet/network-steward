@@ -1,0 +1,25 @@
+{
+  "fixture_id": "ABSTAIN-UNKNOWN-01",
+  "synthetic": true,
+  "data_notice": "Synthetic Cisco-style fixture data; not captured from IOS or a simulator.",
+  "scenario_id": null,
+  "case_kind": "unknown",
+  "injected_fault": null,
+  "report": {
+    "symptom": "Intermittent application delay with no matching declared scenario."
+  },
+  "lab_map": {},
+  "captures": [
+    {
+      "device": "LAB-CORE-01",
+      "command": "show version",
+      "output": "Synthetic platform summary; uptime and version fields do not match a declared failure rule."
+    }
+  ],
+  "expected": {
+    "candidate_states": {},
+    "evidence": [],
+    "abstain": true,
+    "next_command": ""
+  }
+}

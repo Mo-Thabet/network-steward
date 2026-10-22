@@ -1,0 +1,40 @@
+{
+  "fixture_id": "NS-03-NM-01",
+  "synthetic": true,
+  "data_notice": "Synthetic Cisco-style fixture data; not captured from IOS or a simulator.",
+  "scenario_id": "NS-03",
+  "case_kind": "near_miss",
+  "injected_fault": "Matching-looking deny is attached in the wrong direction.",
+  "report": {
+    "symptom": "HTTPS from one host to the service at 198.51.100.20 fails."
+  },
+  "lab_map": {
+    "source": "192.0.2.10",
+    "destination": "198.51.100.20",
+    "protocol": "tcp",
+    "port": 443,
+    "interface": "GigabitEthernet0/0",
+    "direction": "inbound",
+    "acl_name": "EDGE-IN"
+  },
+  "captures": [
+    {
+      "device": "RTR-EDGE-01",
+      "command": "show ip interface GigabitEthernet0/0",
+      "output": "GigabitEthernet0/0 is up, line protocol is up\n  Outbound access list is EDGE-IN"
+    },
+    {
+      "device": "RTR-EDGE-01",
+      "command": "show access-lists EDGE-IN",
+      "output": "Extended IP access list EDGE-IN\n  10 deny tcp 192.0.2.10 198.51.100.20 eq 443 (0 matches)\n  20 permit ip any any"
+    }
+  ],
+  "expected": {
+    "candidate_states": {
+      "NS-03": "contradicted"
+    },
+    "evidence": [],
+    "abstain": true,
+    "next_command": "show access-lists EDGE-IN"
+  }
+}

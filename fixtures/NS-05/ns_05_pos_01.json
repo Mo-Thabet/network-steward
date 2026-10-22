@@ -1,0 +1,36 @@
+{
+  "fixture_id": "NS-05-POS-01",
+  "synthetic": true,
+  "data_notice": "Synthetic Cisco-style fixture data; not captured from IOS or a simulator.",
+  "scenario_id": "NS-05",
+  "case_kind": "positive",
+  "injected_fault": "Expected route is absent; underlying route-learning cause is intentionally unspecified.",
+  "report": {
+    "symptom": "RTR-B cannot reach expected remote prefix 198.51.100.0/24."
+  },
+  "lab_map": {
+    "router": "RTR-B",
+    "expected_prefix": "198.51.100.0/24",
+    "default_route_intended_to_cover": false
+  },
+  "captures": [
+    {
+      "device": "RTR-B",
+      "command": "show ip route 198.51.100.0/24",
+      "output": "% Network not in table"
+    }
+  ],
+  "expected": {
+    "candidate_states": {
+      "NS-05": "supported"
+    },
+    "evidence": [
+      {
+        "capture_index": 0,
+        "line_contains": "% Network not in table"
+      }
+    ],
+    "abstain": false,
+    "next_command": "show ip protocols"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "fixture_id": "ABSTAIN-MISSING-01",
+  "synthetic": true,
+  "data_notice": "Synthetic Cisco-style fixture data; not captured from IOS or a simulator.",
+  "scenario_id": "NS-02",
+  "case_kind": "insufficient",
+  "injected_fault": "Symptom reported with no command evidence.",
+  "report": {
+    "symptom": "Clients in expected VLAN 20 cannot reach the local gateway."
+  },
+  "lab_map": {
+    "variant": "access_vlan",
+    "expected_client_vlan": 20,
+    "access_port": "GigabitEthernet0/1"
+  },
+  "captures": [],
+  "expected": {
+    "candidate_states": {
+      "NS-02": "insufficient"
+    },
+    "evidence": [],
+    "abstain": true,
+    "next_command": "show vlan brief"
+  }
+}

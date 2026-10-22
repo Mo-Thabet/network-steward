@@ -1,0 +1,41 @@
+{
+  "fixture_id": "NS-01-POS-01",
+  "synthetic": true,
+  "data_notice": "Synthetic Cisco-style fixture data; not captured from IOS or a simulator.",
+  "scenario_id": "NS-01",
+  "case_kind": "positive",
+  "injected_fault": "Known endpoint access interface is administratively shut down.",
+  "report": {
+    "symptom": "One wired endpoint has no link or network access.",
+    "device": "SW-EDGE-01",
+    "interface": "GigabitEthernet1/0/12"
+  },
+  "lab_map": {
+    "device": "SW-EDGE-01",
+    "expected_endpoint_interface": "GigabitEthernet1/0/12"
+  },
+  "captures": [
+    {
+      "device": "SW-EDGE-01",
+      "command": "SW-EDGE-01# show ip interface brief",
+      "output": "Interface              IP-Address      OK? Method Status                Protocol\nGigabitEthernet1/0/12  unassigned      YES unset  administratively down down"
+    }
+  ],
+  "expected": {
+    "candidate_states": {
+      "NS-01": "supported"
+    },
+    "evidence": [
+      {
+        "capture_index": 0,
+        "line_contains": "GigabitEthernet1/0/12  unassigned"
+      },
+      {
+        "capture_index": 0,
+        "line_contains": "administratively down down"
+      }
+    ],
+    "abstain": false,
+    "next_command": "show interfaces GigabitEthernet1/0/12"
+  }
+}
