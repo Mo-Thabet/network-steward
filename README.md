@@ -51,4 +51,4 @@ python -B -m unittest discover -s tests -v
 
 The staged tests are a curated, self-contained synthetic suite. They are not equivalent to the full project suite and do not include historical campaign or Packet Tracer evidence tests.
 
-The GitHub repository is currently public. Rights-holder confirmation and an approved license remain unresolved; public availability does not grant reuse permission. See [license_decision_required.md](license_decision_required.md) for the pending decision. For usage, see [docs/quickstart.md](docs/quickstart.md) and [docs/architecture.md](docs/architecture.md).
+**License:** No license has been added. Public availability does not grant permission to reuse or redistribute this project. See the [licensing note](license_decision_required.md). For usage, see [docs/quickstart.md](docs/quickstart.md) and [docs/architecture.md](docs/architecture.md).

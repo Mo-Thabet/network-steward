@@ -9,13 +9,13 @@ The GitHub repository is currently public. This review covers the staged tree, w
 | Candidate category | Decision | Review notes |
 |---|---|---|
 | Required runtime source | Included: eight `network_steward/` modules. | `__init__.py`, `cli.py`, `loader.py`, `models.py`, `normalize.py`, `rules.py`, `experimental_conflicts.py`, and `report.py` form the fixture-to-report path. Standard-library imports only. |
-| Public documentation | Included: staged `README.md`, `docs/quickstart.md`, `docs/architecture.md`. | The root README was written for this stage, rather than copied with its long historical campaign narrative. Claims are limited to source-supported behavior and synthetic examples. |
+| Public documentation | Included: staged `README.md`, `docs/quickstart.md`, `docs/architecture.md`. | The root README covers the staged prototype and omits the long historical campaign narrative. Claims are limited to source-supported behavior and synthetic examples. |
 | Safe synthetic example | Included: `examples/reproducible_demo.py` and the 19 JSON fixtures plus `fixtures/manifest.json`. | Every fixture is labeled synthetic. The demo checks citation coordinates and exact source-line text. No IOS capture or simulator output is represented as synthetic data. |
 | Self-contained test | Included: six test modules under `tests/`. | They use staged source and staged synthetic fixtures or inline synthetic cases. Two campaign-bound NS-05/NS-07 checks were replaced with standalone synthetic regression inputs. |
 | Historical evaluation artifact | Excluded. | All historical campaign directories, reports, manifests, frozen evaluation cases, and local replay outputs are excluded. |
 | Packet Tracer or other external evidence | Excluded. | Packet Tracer loader/CLI modules, `.pkt` projects, manually transcribed evidence cases, screenshots, and run logs are not in this stage. No live-device evidence is included. |
 | Generated or machine-specific artifact | Excluded. | Python cache files were removed before manifest creation. No local path, preservation sidecar, environment state, or run log is staged. |
-| Uncertain licensing or ownership | Pending approval for every staged file. | No license/notice or documented grant was found. The available records do not establish redistribution rights for all copied code, docs, tests, demo, and fixtures. `license_decision_required.md` records the decision required; no license text was added. |
+| License and redistribution status | Pending approval for every staged file. | No license or documented grant was found. Redistribution permissions have not been documented for every file in the staging tree. `license_decision_required.md` records the decision required; no license text was added. |
 
 ### Included file purposes
 
@@ -96,5 +96,5 @@ The demo, CLI, and tests were run from the staging directory alone. The staged s
 
 ## Preservation
 
-Staging was performed by copying selected files into this new directory. The initial preservation check found no source, historical report, frozen dataset, Packet Tracer file, or existing hash record had changed. After staging, `python -B evaluation/network_steward_release_candidate_2026-10-20_01/verify_preservation.py` reported 54 checked files, zero mismatches, and `historical_files_unchanged: true`. This documentation-only correction updates the README and this review; the staging manifest records their refreshed hashes. No implementation, test, test-result, or fixture files changed.
+This staging tree was assembled from selected project files. The initial preservation check found no source, historical report, frozen dataset, Packet Tracer file, or existing hash record had changed. After staging, `python -B evaluation/network_steward_release_candidate_2026-10-20_01/verify_preservation.py` reported 54 checked files, zero mismatches, and `historical_files_unchanged: true`. This documentation-only correction updates the README and this review; the staging manifest records their refreshed hashes. No implementation, test, test-result, or fixture files changed.
 
